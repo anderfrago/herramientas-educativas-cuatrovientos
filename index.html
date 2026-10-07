@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
     content="Herramientas digitales para la educación y la Formación Profesional desarrolladas en Cuatrovientos.">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="theme-color" content="#0f4285">
   <title>Herramientas educativas · Cuatrovientos</title>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
@@ -32,6 +32,7 @@
           <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
             <li class="nav-item"><a class="nav-link" href="#herramientas">Herramientas</a></li>
             <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+            <li class="nav-item"><a class="nav-link" href="privacidad.html">Privacidad</a></li>
             <li class="nav-item"><a class="btn btn-primary ms-lg-2" href="https://www.cuatrovientos.org/"
                 target="_blank" rel="noopener noreferrer">Visitar Cuatrovientos <span aria-hidden="true">↗</span></a>
             </li>
@@ -61,9 +62,21 @@
               <span class="hero-note-number">07</span>
               <p>recursos digitales pensados desde la experiencia en el aula de FP.</p>
               <div class="hero-note-rule"></div>
-              <small>Abiertos · prácticos · educativos</small>
+              <small>Catálogo en revisión</small>
             </aside>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="review-section" aria-labelledby="review-title">
+      <div class="container">
+        <div class="review-notice">
+          <p class="eyebrow">Estado del catálogo · 7 de octubre de 2026</p>
+          <h2 id="review-title">Uso pendiente de validación</h2>
+          <p>Las herramientas del proyecto están en revisión. Sus accesos desde este portal permanecen en pausa hasta completar la actualización y la autorización del centro. No introduzcas datos reales del alumnado mientras tanto.</p>
+          <p>La revisión del código no acredita por sí sola el cumplimiento del RGPD. Cada aplicación necesita su propia información de privacidad, control de acceso y condiciones de uso.</p>
+          <a href="privacidad.html">Consultar privacidad y condiciones de acceso</a>
         </div>
       </div>
     </section>
@@ -72,11 +85,11 @@
       <div class="container">
         <div class="section-heading row align-items-end g-3">
           <div class="col-lg-8">
-            <p class="eyebrow">Recursos disponibles</p>
+            <p class="eyebrow">Catálogo de recursos</p>
             <h2>Herramientas para el día a día</h2>
           </div>
           <div class="col-lg-4">
-            <p class="section-intro">Accede a cada aplicación y consulta sus videotutoriales para empezar a utilizarla.
+            <p class="section-intro">Consulta el estado de cada herramienta. Los tutoriales pueden corresponder a versiones anteriores.
             </p>
           </div>
         </div>
@@ -87,10 +100,10 @@
               <div class="tool-number">01</div>
               <div class="tool-icon" aria-hidden="true">↗</div>
               <h3>Trasladar notas</h3>
-              <p>Agiliza el traslado de calificaciones y reduce tareas repetitivas en la gestión académica.</p>
+              <p class="tool-status">Actualización y autorización pendientes</p>
+              <p>Genera copias individuales de las calificaciones para su revisión docente antes de compartirlas en modo lectura.</p>
               <div class="tool-actions">
-                <a class="btn btn-primary" href="https://trasladarnotas.pythonanywhere.com/" target="_blank"
-                  rel="noopener noreferrer">Abrir aplicación <span aria-hidden="true">↗</span></a>
+                <span class="access-paused">Acceso en pausa</span>
                 <a class="video-link" href="https://drive.google.com/open?id=1fG2mTaVDEqdZGYYdb9iMjsdJXSwMkXg1"
                   target="_blank" rel="noopener noreferrer"><span aria-hidden="true">▶</span> Tutorial 1</a>
                 <a class="video-link" href="https://drive.google.com/open?id=11gkAU14xkc_9jdXdIKd8LXV0ZwuSZc7D"
@@ -104,10 +117,10 @@
               <div class="tool-number">02</div>
               <div class="tool-icon" aria-hidden="true">◎</div>
               <h3>Retroalimentación de competencias clave</h3>
+              <p class="tool-status">Pendiente de revisión específica</p>
               <p>Facilita una devolución clara y útil sobre la evolución de las competencias clave del alumnado.</p>
               <div class="tool-actions">
-                <a class="btn btn-primary" href="https://cuatrovientos-ci.github.io/cc-feedback/" target="_blank"
-                  rel="noopener noreferrer">Abrir aplicación <span aria-hidden="true">↗</span></a>
+                <span class="access-paused">Acceso en pausa</span>
                 <a class="video-link" href="https://drive.google.com/open?id=1tjrzH6XLah9Ah1Yx10GaiMkNwZctap6p"
                   target="_blank" rel="noopener noreferrer"><span aria-hidden="true">▶</span> Ver tutorial</a>
               </div>
@@ -119,10 +132,10 @@
               <div class="tool-number">03</div>
               <div class="tool-icon" aria-hidden="true">✓</div>
               <h3>Autoevaluación de competencias clave</h3>
+              <p class="tool-status">Actualización y autorización pendientes</p>
               <p>Invita al alumnado a reflexionar sobre su aprendizaje y valorar su propio desarrollo competencial.</p>
               <div class="tool-actions">
-                <a class="btn btn-primary" href="https://competenciasclaveauto.pythonanywhere.com/acceso"
-                  target="_blank" rel="noopener noreferrer">Abrir aplicación <span aria-hidden="true">↗</span></a>
+                <span class="access-paused">Acceso en pausa</span>
                 <a class="video-link" href="https://drive.google.com/open?id=1KeabAqZYuDcyzgZPoeTScOvV4JOjujh7"
                   target="_blank" rel="noopener noreferrer"><span aria-hidden="true">▶</span> Ver tutorial</a>
               </div>
@@ -134,10 +147,10 @@
               <div class="tool-number">04</div>
               <div class="tool-icon" aria-hidden="true">?</div>
               <h3>Cuestionarios</h3>
-              <p>Crea procesos de autopercepción y recoge respuestas de forma sencilla para trabajar con el grupo.</p>
+              <p class="tool-status">Actualización y autorización pendientes</p>
+              <p>Recoge respuestas educativas. Los cuestionarios de salud o bienestar requieren una valoración y autorización específica del centro.</p>
               <div class="tool-actions">
-                <a class="btn btn-primary" href="https://autopercepcion.pythonanywhere.com/acceso" target="_blank"
-                  rel="noopener noreferrer">Abrir aplicación <span aria-hidden="true">↗</span></a>
+                <span class="access-paused">Acceso en pausa</span>
                 <a class="video-link" href="https://drive.google.com/open?id=1bzIXFirZxd4jwTg6L_9GSG7ad6YKd5XA"
                   target="_blank" rel="noopener noreferrer"><span aria-hidden="true">▶</span> Ver tutorial</a>
               </div>
@@ -149,11 +162,11 @@
               <div class="tool-number">05</div>
               <div class="tool-icon" aria-hidden="true">⇄</div>
               <h3>Coevaluación de trabajos grupales</h3>
+              <p class="tool-status">Actualización y autorización pendientes</p>
               <p>Ayuda a valorar la contribución de cada integrante y a generar conversaciones de mejora en los equipos.
               </p>
               <div class="tool-actions">
-                <a class="btn btn-primary" href="https://coevaluacionequipos.pythonanywhere.com/" target="_blank"
-                  rel="noopener noreferrer">Abrir aplicación <span aria-hidden="true">↗</span></a>
+                <span class="access-paused">Acceso en pausa</span>
                 <span class="video-link disabled" aria-disabled="true"><span aria-hidden="true">▶</span> Vídeo
                   próximamente</span>
               </div>
@@ -167,11 +180,10 @@
               <div class="tool-number">06</div>
               <div class="tool-icon" aria-hidden="true">＋</div>
               <h3>Formador de equipos</h3>
-              <p>Permite crear equipos de trabajo de forma ágil y equilibrada para poner en marcha actividades
-                colaborativas.</p>
+              <p class="tool-status">Actualización y autorización pendientes</p>
+              <p>Propone equipos de trabajo a partir de información del grupo. El docente debe revisar y validar la propuesta.</p>
               <div class="tool-actions">
-                <a class="btn btn-primary" href="https://formadorequipos.pythonanywhere.com/teacher" target="_blank"
-                  rel="noopener noreferrer">Abrir aplicación <span aria-hidden="true">↗</span></a>
+                <span class="access-paused">Acceso en pausa</span>
                 <span class="video-link disabled" aria-disabled="true"><span aria-hidden="true">▶</span> Vídeo
                   próximamente</span>
               </div>
@@ -187,6 +199,7 @@
               <div class="tool-icon" aria-hidden="true">🔒</div>
 
               <h3>Safe Exam Browser</h3>
+              <p class="tool-status">Recurso externo · fuera de esta revisión</p>
 
               <p>
                 Navegador seguro que permite realizar exámenes digitales en un entorno
@@ -196,7 +209,7 @@
               <div class="tool-actions">
                 <a class="btn btn-primary" href="https://safeexambrowser.org/" target="_blank"
                   rel="noopener noreferrer">
-                  Abrir aplicación <span aria-hidden="true">↗</span>
+                  Web del proveedor <span aria-hidden="true">↗</span>
                 </a>
 
                 <a class="video-link" href="https://drive.google.com/open?id=1r8LbRd3jm_chCrt4Pv-xUFAHxD7cOhKw"
@@ -206,7 +219,7 @@
 
                 <a class="video-link" href="https://drive.google.com/open?id=15xKRrDKAT6JiMTr4L61_4ZK3HmIQNtwE"
                   target="_blank" rel="noopener noreferrer">
-                  <span aria-hidden="true">▣</span> Hoja de autorización
+                  <span aria-hidden="true">▣</span> Documento de referencia
                 </a>
               </div>
             </article>
@@ -242,12 +255,11 @@
       <p>Herramientas educativas · Ander Frago</p>
       <p>Desarrollado en el entorno de <a href="https://www.cuatrovientos.org/" target="_blank"
           rel="noopener noreferrer">Cuatrovientos <span aria-hidden="true">↗</span></a></p>
+      <p><a href="privacidad.html">Privacidad y uso del portal</a></p>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
