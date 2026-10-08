@@ -15,14 +15,14 @@ Portal estático para GitHub Pages. Revisión local: 7 de octubre de 2026. No se
 | Recurso | Estado del portal | Dirección anterior, para comprobación antes de una futura habilitación |
 |---|---|---|
 | Trasladar notas | Actualización y autorización pendientes | https://trasladarnotas.pythonanywhere.com/ |
-| Retroalimentación de competencias clave | Pendiente de revisión específica; acceso en pausa | https://cuatrovientos-ci.github.io/cc-feedback/ |
+| Retroalimentación de competencias clave | Revisión local con seudonimización preparada; publicación y autorización pendientes | https://cuatrovientos-ci.github.io/cc-feedback/ |
 | Autoevaluación de competencias clave | Actualización y autorización pendientes | https://competenciasclaveauto.pythonanywhere.com/acceso |
 | Cuestionarios | Actualización y autorización pendientes | https://autopercepcion.pythonanywhere.com/acceso |
 | Coevaluación de trabajos grupales | Actualización y autorización pendientes | https://coevaluacionequipos.pythonanywhere.com/ |
 | Formador de equipos | Actualización y autorización pendientes | https://formadorequipos.pythonanywhere.com/teacher |
 | Safe Exam Browser | Recurso externo, fuera de la revisión; enlace a su proveedor | https://safeexambrowser.org/ |
 
-Las cinco aplicaciones revisadas tienen cambios preparados en sus repositorios locales. No se ha acreditado que estén desplegados ni autorizados. No extender ese resultado a Retroalimentación o Safe Exam Browser. El enlace al proveedor externo no equivale a recomendar su instalación ni a autorizar exámenes con él.
+Las seis aplicaciones revisadas tienen cambios preparados en sus repositorios locales, incluida Retroalimentación (8 de octubre de 2026), que mantiene recomendaciones con IA y separa los identificadores antes de llamar al modelo. No se ha acreditado que estén desplegados ni autorizados. Safe Exam Browser queda fuera de esta revisión. El enlace al proveedor externo no equivale a recomendar su instalación ni a autorizar exámenes con él.
 
 **La pausa del catálogo no desactiva las aplicaciones.** Si el centro mantiene su pausa de uso, TI debe aplicar los controles correspondientes en cada despliegue. No se ha entrado en esos servicios ni alterado su estado.
 
