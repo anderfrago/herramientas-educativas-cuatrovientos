@@ -2,6 +2,36 @@
 
 Portal estático para GitHub Pages. Actualización: 8 de octubre de 2026. Enlaces a los nuevos dominios europeos de PythonAnywhere y referencia a las medidas de adecuación al RGPD. La migración está en curso; no se presupone su finalización ni la autorización institucional.
 
+## Adecuación al RGPD
+
+Documentación revisada el 9 de octubre de 2026 a partir de los diagramas del informe inicial y del código actual. Describe las medidas implementadas; la configuración y autorización de producción deben comprobarse aparte.
+
+El portal incorpora recursos de diseño locales, política de contenido y ausencia de formularios, analítica y almacenamiento de calificaciones en su propio código. GitHub Pages puede tratar datos de navegación, incluidos registros de IP. Los enlaces no unifican la autenticación ni autorizan el uso de las aplicaciones con datos reales. La información institucional de privacidad y las condiciones del alojamiento deben completarse y validarse. La referencia a medidas de adecuación al RGPD no constituye una certificación de cumplimiento.
+
+El aviso se mantiene en `privacidad.html`; GitHub Pages no carga variables de un archivo `.env`.
+
+[Guía de privacidad](privacidad.html) · [Web](https://anderfrago.github.io/herramientas-educativas-cuatrovientos/).
+
+## Flujo de funcionamiento y datos
+
+```mermaid
+flowchart TD
+    U["Visitante"] --> P["Portal público en GitHub Pages"]
+    P --> L["HTML, CSS y navegación locales: sin CDN ni vídeos incrustados"]
+    P --> I["Estado de revisión y privacidad"]
+    P -->|"Enlaces; autenticación independiente"| A["Cinco aplicaciones PythonAnywhere: nuevos dominios europeos"]
+    A --> G["Identidad Google o verificación por correo según aplicación"]
+    A --> B["Bases de datos, registros y copias propios de cada aplicación"]
+    A -->|"Solo Trasladar notas"| D["Google Drive y Sheets"]
+    P --> C["CC-feedback en GitHub Pages"]
+    C --> E["Editor aislado: códigos, competencias y notas"]
+    E --> AI["Puter y Gemini"]
+    C -->|"Revisión y acción expresa"| M["Gmail"]
+    P --> T["Enlaces externos: tutoriales, centro y Safe Exam Browser"]
+    P --> R["Registros de navegación del alojamiento"]
+```
+
+
 ## Cambios
 
 - Bootstrap 5.3.8 se sirve localmente, con su licencia MIT en `assets/vendor/bootstrap/LICENSE`. Se han quitado únicamente las referencias a mapas de código no distribuidos. No se cargan recursos desde jsDelivr, fuentes remotas ni vídeos incrustados.
@@ -23,19 +53,6 @@ Portal estático para GitHub Pages. Actualización: 8 de octubre de 2026. Enlace
 | Safe Exam Browser | https://safeexambrowser.org/ |
 
 Las seis aplicaciones incorporan medidas técnicas de adecuación al RGPD. Su presencia en el catálogo no acredita cumplimiento completo ni autoriza el uso con datos reales. La migración de las cinco aplicaciones de PythonAnywhere está en curso; el portal y CC-feedback permanecen en GitHub Pages. Safe Exam Browser queda fuera de esta revisión.
-
-## Flujo
-
-```mermaid
-flowchart TD
-    V[Visitante] --> P[Portal estático en GitHub Pages]
-    P --> R[HTML, CSS y navegación desde el mismo sitio]
-    P --> I[Estado de revisión e información de privacidad]
-    P --> T[Enlaces de consulta: solo se navega al activarlos]
-    T --> E[Google Drive, centro o proveedor externo]
-    P --> A[Aplicaciones para revisión con datos ficticios]
-    G[GitHub Pages] --> L[Registros de acceso del alojamiento]
-```
 
 ## Requisitos antes de usar datos reales
 
