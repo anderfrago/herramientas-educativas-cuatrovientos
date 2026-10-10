@@ -6,9 +6,13 @@ Actualización de 10 de octubre de 2026. Catálogo público en GitHub Pages con 
 
 El portal no recibe notas, incorpora recursos de diseño locales y no incluye formularios, analítica ni almacenamiento de datos del alumnado. GitHub Pages puede tratar registros de IP. Cada aplicación tiene autenticación, conservación y condiciones propias; la información institucional de privacidad debe completarse y validarse. Estas medidas no constituyen una certificación de cumplimiento.
 
-CC-feedback ofrece propuestas por reglas y Wllama opcional en el navegador, con nombres, correos y total separados del motor. La revisión preparada identifica resultados por reglas, IA o mixtos, informa de sustituciones ante errores, permite cancelar y libera el motor antes de reutilizarlo. Retira los datos de sesión por borrado, salida o inactividad y verifica la limpieza de su caché propia. No borra automáticamente cachés antiguas, correos, originales ni copias externas.
+CC-feedback genera inicialmente borradores con descriptores de rúbrica seleccionados por código. Sus intervalos actuales son: nivel 1 para notas menores que 5; nivel 2 desde 5 hasta menos de 7; nivel 3 desde 7 hasta menos de 8,5; nivel 4 desde 8,5. Deben validarse estos cortes y las correspondencias entre competencias y subcompetencias. Wllama mejora únicamente las sugerencias de alumnos seleccionados, individualmente o en lote, mediante inferencia local.
 
-La inferencia no usa una API externa de IA. El runtime se incluye en la web y el modelo Qwen 2.5 0.5B se descarga de Hugging Face desde una revisión fija. El alojamiento y las descargas generan metadatos de conexión; Gmail recibe destinatario y texto al abrir el borrador. La aplicación no impone la cuenta de Google activa. La revisión docente sigue siendo necesaria y no se deduce un nivel de rúbrica ni una conducta individual a partir de una nota.
+Flask gestiona un panel administrativo con Google OAuth y SQLite para rúbricas, consejos y ajustes. Se comprueban correo verificado y dominio; ADMIN_USER restringe las cuentas si tiene valores concretos. Vacío o con asterisco permite todas las cuentas verificadas del dominio. La sesión trata identidad del administrador; los textos de configuración se distribuyen públicamente y no deben contener información personal. Las notas y borradores del alumnado permanecen en el navegador.
+
+Las correcciones locales cargan el `.env` junto a `server.py`, limitan los archivos públicos para proteger secretos y SQLite y permiten cargar los recursos del iframe aislado mediante cabeceras compatibles. Deben verificarse los mapeos estáticos del despliegue. La limpieza del editor no garantiza actualmente liberar el motor; cancelar solicita abortar, pero el flujo no espera siempre a que termine. La caché propia de los pesos se elimina selectivamente. No se presume borrado de documentos, mensajes ni copias externas.
+
+El runtime se sirve con la aplicación; Hugging Face distribuye los pesos. Google interviene en la autenticación administrativa y Gmail recibe destinatario y texto al abrir el borrador. No se usa una API externa de inferencia. El procesamiento local no garantiza anonimato ni cumplimiento automático.
 
 [Privacidad del portal](privacidad.html) · [Privacidad de CC-feedback](https://ccfeedback.eu.pythonanywhere.com/privacidad.html)
 
@@ -16,21 +20,22 @@ La inferencia no usa una API externa de IA. El runtime se incluye en la web y el
 
 ```mermaid
 flowchart TD
-    U[Visitante] --> P[Portal en GitHub Pages]
-    P --> A[Cinco aplicaciones con backend en PythonAnywhere Europa]
-    A --> B[Acceso y conservación propios de cada aplicación]
-    P --> C[CC-feedback en PythonAnywhere Europa]
+    P[Portal en GitHub Pages] --> C[CC-feedback en PythonAnywhere Europa]
+    P --> O[Otras cinco aplicaciones educativas]
+    A[Administrador] --> G[Google: correo verificado y dominio]
+    G --> F[Flask: sesión y lista de administración configurada]
+    F --> DB[SQLite: rúbricas, consejos y ajustes]
+    DB --> R[Configuración pedagógica pública]
     C --> E[Editor aislado: identidades y notas]
-    E --> N[Códigos temporales, competencias y notas]
-    N --> R[Propuestas por reglas]
-    N --> W[Wllama opcional en el navegador]
-    H[Hugging Face: pesos del modelo] --> W
-    W --> V[Validación y etiqueta del método]
+    E --> V[Valoración por código y borrador inicial]
     R --> V
-    V --> D[Asociación local y revisión docente]
-    D -->|Acción expresa| G[Gmail: destinatario y texto]
-    E --> X[Retirada de datos por borrado o inactividad]
-    P --> L[Registros de navegación del alojamiento]
+    V --> S[Selección docente de alumnos]
+    S --> W[Wllama local: solo sugerencias]
+    H[Hugging Face: descarga de pesos] --> W
+    W --> D[Asociación local y revisión docente]
+    V --> D
+    D -->|Acción expresa| M[Gmail: destinatario y texto]
+    E --> X[Borrado del editor o inactividad]
 ```
 
 ## Direcciones del catálogo
@@ -49,7 +54,7 @@ Repositorio de CC-feedback: https://github.com/cuatrovientos-ci/cc-feedback/tree
 
 ## Actuaciones pendientes de CC-feedback
 
-Publicar y verificar la revisión, probar el modelo real y su calidad pedagógica en equipos del centro, comprobar la cancelación y retirada de datos, inspeccionar la red y evaluar las cabeceras para varios hilos. Completar responsable, DPD, base jurídica, conservación y derechos; revisar proveedores y licencia del modelo y obtener autorización institucional. Las pruebas automatizadas de la revisión utilizan IA simulada y no sustituyen estas comprobaciones.
+Publicar y comprobar las correcciones con las cabeceras y mapeos estáticos reales. Configurar OAuth, una clave de sesión estable y la lista autorizada; reforzar CSRF, caducidad y atributos de cookies en el panel. Validar intervalos y correspondencias de rúbrica, calidad y rendimiento de sugerencias. Corregir y probar la espera de cancelación y liberación del motor. Completar responsable, DPD, base jurídica, proveedores, conservación y autorización institucional. Las pruebas locales de Flask y navegador verifican recursos, lectura de configuración y bloqueo de archivos privados; no certifican una auditoría completa del panel ni el despliegue público.
 
 ## Requisitos antes de usar datos reales
 
