@@ -1,18 +1,22 @@
 # Portal de herramientas educativas Cuatrovientos
 
-Actualización de 10 de octubre de 2026. Catálogo público en GitHub Pages con enlaces a seis aplicaciones en PythonAnywhere Europa. CC-feedback: https://ccfeedback.eu.pythonanywhere.com/. Las mejoras recientes de su rama `webbrowser-llm` están preparadas localmente; publicación y aceptación técnica pendientes. La migración y la inclusión en el catálogo no implican autorización institucional.
+Actualización de 10 de octubre de 2026. Catálogo público en GitHub Pages con enlaces a seis aplicaciones en PythonAnywhere Europa. CC-feedback: https://ccfeedback.eu.pythonanywhere.com/. Las mejoras recientes de su rama `puter-llm` están preparadas localmente; publicación y aceptación técnica pendientes. La migración y la inclusión en el catálogo no implican autorización institucional.
 
 ## Medidas de adecuación al RGPD
 
 El portal no recibe notas, incorpora recursos de diseño locales y no incluye formularios, analítica ni almacenamiento de datos del alumnado. GitHub Pages puede tratar registros de IP. Cada aplicación tiene autenticación, conservación y condiciones propias; la información institucional de privacidad debe completarse y validarse. Estas medidas no constituyen una certificación de cumplimiento.
 
-CC-feedback genera inicialmente borradores con descriptores de rúbrica seleccionados por código. Sus intervalos actuales son: nivel 1 para notas menores que 5; nivel 2 desde 5 hasta menos de 7; nivel 3 desde 7 hasta menos de 8,5; nivel 4 desde 8,5. Deben validarse estos cortes y las correspondencias entre competencias y subcompetencias. Wllama mejora únicamente las sugerencias de alumnos seleccionados, individualmente o en lote, mediante inferencia local.
+CC-feedback genera inicialmente borradores con descriptores de rúbrica seleccionados por código. Sus intervalos actuales son: nivel 1 para notas menores que 5; nivel 2 desde 5 hasta menos de 7; nivel 3 desde 7 hasta menos de 8,5; nivel 4 desde 8,5. Deben validarse estos cortes y las correspondencias entre competencias y subcompetencias. Puter mejora únicamente las sugerencias de alumnos seleccionados, una competencia por petición. Conserva las ediciones docentes, muestra el progreso y contabiliza cambios reales. La variante local permanece en `webbrowser-llm`; debe confirmarse la versión publicada.
 
-Flask gestiona un panel administrativo con Google OAuth y SQLite para rúbricas, consejos y ajustes. Se comprueban correo verificado y dominio; ADMIN_USER restringe las cuentas si tiene valores concretos. Vacío o con asterisco permite todas las cuentas verificadas del dominio. La sesión trata identidad del administrador; los textos de configuración se distribuyen públicamente y no deben contener información personal. Las notas y borradores del alumnado permanecen en el navegador.
+Flask gestiona un panel administrativo con Google OAuth y SQLite para rúbricas, consejos y ajustes. Se comprueban correo verificado y dominio; ADMIN_USER restringe las cuentas si tiene valores concretos. Vacío o con asterisco permite todas las cuentas verificadas del dominio. La sesión trata identidad del administrador; los textos de configuración se distribuyen públicamente y no deben contener información personal. Las identidades y borradores permanecen en el editor aislado; al solicitar IA, las competencias y notas salen del dispositivo.
 
-Las correcciones locales cargan el `.env` junto a `server.py`, limitan los archivos públicos para proteger secretos y SQLite y permiten cargar los recursos del iframe aislado mediante cabeceras compatibles. Deben verificarse los mapeos estáticos del despliegue. La limpieza del editor no garantiza actualmente liberar el motor; cancelar solicita abortar, pero el flujo no espera siempre a que termine. La caché propia de los pesos se elimina selectivamente. No se presume borrado de documentos, mensajes ni copias externas.
+Se conservan la carga del `.env` junto a `server.py`, la restricción de archivos públicos y el sandbox/CSP del editor. La página principal adapta sus cabeceras a la ventana de autenticación de Puter. Los mapeos estáticos del despliegue requieren verificación.
 
-El runtime se sirve con la aplicación; Hugging Face distribuye los pesos. Google interviene en la autenticación administrativa y Gmail recibe destinatario y texto al abrir el borrador. No se usa una API externa de inferencia. El procesamiento local no garantiza anonimato ni cumplimiento automático.
+El borrador inicial no conecta con Puter. Conectar carga su SDK y Acceder abre la identificación. Las peticiones de IA contienen solo competencia, nota e instrucción pedagógica; excluyen nombres, correos, total, códigos y borradores. El modelo configurado en esta revisión es `gemini-3.5-flash-lite`, modificable en `model-config.js`.
+
+Cancelar detiene la cola y descarta resultados tardíos. No garantiza retirar una petición ya recibida por Puter ni borrar datos del proveedor. El editor retira datos al borrar, salir o tras quince minutos de inactividad; la suspensión puede retrasarlo. La limpieza de caché solo elimina `cc-feedback-model-v1`, de la variante anterior. No elimina la sesión del SDK, documentos, mensajes ni copias externas.
+
+Puter y su proveedor realizan la inferencia externa. El alojamiento europeo de la web no determina la ubicación de esos tratamientos. Google interviene en administración y Gmail recibe texto y destinatario al abrir el borrador. La separación de identidades no acredita anonimato ni cumplimiento automático. Deben revisarse condiciones, conservación, garantías y transferencias aplicables con el DPD.
 
 [Privacidad del portal](privacidad.html) · [Privacidad de CC-feedback](https://ccfeedback.eu.pythonanywhere.com/privacidad.html)
 
@@ -30,8 +34,7 @@ flowchart TD
     E --> V[Valoración por código y borrador inicial]
     R --> V
     V --> S[Selección docente de alumnos]
-    S --> W[Wllama local: solo sugerencias]
-    H[Hugging Face: descarga de pesos] --> W
+    S -->|Competencia, nota e instrucción sin identidades| W[Puter y proveedor externo: sugerencias]
     W --> D[Asociación local y revisión docente]
     V --> D
     D -->|Acción expresa| M[Gmail: destinatario y texto]
@@ -50,11 +53,11 @@ flowchart TD
 | Formador de equipos | https://formadorequipos.eu.pythonanywhere.com/ |
 | Safe Exam Browser | https://safeexambrowser.org/ |
 
-Repositorio de CC-feedback: https://github.com/cuatrovientos-ci/cc-feedback/tree/webbrowser-llm. La dirección de producción está confirmada por el mantenedor; esta actualización documental no acredita que la última revisión esté publicada.
+Repositorio de CC-feedback: https://github.com/cuatrovientos-ci/cc-feedback/tree/puter-llm. La dirección de producción está confirmada por el mantenedor; esta actualización documental no acredita que la última revisión esté publicada.
 
 ## Actuaciones pendientes de CC-feedback
 
-Publicar y comprobar las correcciones con las cabeceras y mapeos estáticos reales. Configurar OAuth, una clave de sesión estable y la lista autorizada; reforzar CSRF, caducidad y atributos de cookies en el panel. Validar intervalos y correspondencias de rúbrica, calidad y rendimiento de sugerencias. Corregir y probar la espera de cancelación y liberación del motor. Completar responsable, DPD, base jurídica, proveedores, conservación y autorización institucional. Las pruebas locales de Flask y navegador verifican recursos, lectura de configuración y bloqueo de archivos privados; no certifican una auditoría completa del panel ni el despliegue público.
+Confirmar y comprobar el despliegue de `puter-llm`. Probar autenticación y generación real con datos ficticios, calidad, tiempos y cuotas. Configurar OAuth, clave de sesión estable y administradores; reforzar CSRF, caducidad y cookies. Validar equivalencias de rúbrica. Completar responsable, DPD, base jurídica, proveedores, conservación y autorización. La revisión debe incluir Puter y su proveedor, las garantías y posibles transferencias. Las pruebas disponibles cubren Puter simulado, carga del SDK real, cancelación local, aislamiento y Flask; no acreditan generación con cuenta real ni el despliegue público.
 
 ## Requisitos antes de usar datos reales
 
